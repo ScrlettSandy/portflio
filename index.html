@@ -1,418 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scarlett Sandy Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scarlett Sandy Portfolio</title>
 
-<style>
-:root{
---deep-red:#3d090c;
---wine:#280506;
---soft-rose:#d3aaaa;
---cream:#f8f2ec;
---text-dark:#3c1616;
---white:#ffffff;
-}
+  <style>
+    :root{
+      --deep-red:#3d090c;
+      --wine:#280506;
+      --soft-rose:#d3aaaa;
+      --cream:#f8f2ec;
+      --text-dark:#3c1616;
+      --white:#ffffff;
+    }
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-html{
-scroll-behavior:smooth;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-body{
-font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(rgba(61,9,12,0.78),rgba(61,9,12,0.78)),url("roses.jpg") center/cover fixed;
-color:var(--text-dark);
-line-height:1.5;
-}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(rgba(61,9,12,0.78),rgba(61,9,12,0.78)),url("roses.jpg") center/cover fixed;
+      color:var(--text-dark);
+      line-height:1.5;
+    }
 
-h1,h2,h3,.display-font{
-font-family:Georgia,"Times New Roman",serif;
-letter-spacing:1px;
-}
+    h1,h2,h3,.display-font{
+      font-family:Georgia,"Times New Roman",serif;
+      letter-spacing:1px;
+    }
 
-a{
-text-decoration:none;
-color:inherit;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-img{
-max-width:100%;
-display:block;
-}
+    img{
+      max-width:100%;
+      display:block;
+    }
 
-.page{
-width:min(1200px,94vw);
-margin:0 auto;
-padding:18px 0 28px;
-}
+    .page{
+      width:min(1200px,94vw);
+      margin:0 auto;
+      padding:18px 0 28px;
+    }
 
-.panel{
-background:var(--cream);
-border:10px solid rgba(211,170,170,0.9);
-margin-bottom:18px;
-overflow:hidden;
-}
+    .panel{
+      background:var(--cream);
+      border:10px solid rgba(211,170,170,0.9);
+      margin-bottom:18px;
+      overflow:hidden;
+    }
 
-/* HERO */
+    /* HERO */
 
-.hero{
-min-height:82vh;
-background:
-linear-gradient(rgba(20,0,0,0.2),rgba(20,0,0,0.35)),
-url("main.jpg") center 35%/cover;
-color:var(--white);
-position:relative;
-padding:36px;
-display:flex;
-align-items:flex-end;
-}
+    .hero{
+      min-height:82vh;
+      background:
+        linear-gradient(rgba(20,0,0,0.2),rgba(20,0,0,0.35)),
+        url("main.jpg") center 35%/cover;
+      color:var(--white);
+      position:relative;
+      padding:36px;
+      display:flex;
+      align-items:flex-end;
+    }
 
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(to top,rgba(25,0,0,0.45),rgba(25,0,0,0.12));
-z-index:1;
-}
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(25,0,0,0.45),rgba(25,0,0,0.12));
+      z-index:1;
+    }
 
-.hero-text{
-position:absolute;
-left:34px;
-bottom:34px;
-z-index:2;
-max-width:85%;
-mix-blend-mode:screen;
-}
+    .hero-text{
+      position:absolute;
+      left:34px;
+      bottom:34px;
+      z-index:2;
+      max-width:85%;
+      mix-blend-mode:screen;
+    }
 
-.big-name{
-font-size:clamp(3.7rem,9vw,7.8rem);
-line-height:0.85;
-text-transform:uppercase;
-letter-spacing:0.22em;
-color:rgba(255,244,240,0.82);
-text-shadow:0 2px 18px rgba(0,0,0,0.18);
-}
+    .big-name{
+      font-size:clamp(3.7rem,9vw,7.8rem);
+      line-height:0.85;
+      text-transform:uppercase;
+      letter-spacing:0.22em;
+      color:rgba(255,244,240,0.82);
+      text-shadow:0 2px 18px rgba(0,0,0,0.18);
+    }
 
-/* GRID */
+    /* GRID */
 
-.grid{
-display:grid;
-grid-template-columns:1.1fr 0.9fr;
-gap:18px;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:18px;
+    }
 
-.section{
-padding:28px;
-min-height:320px;
-}
+    .section{
+      padding:28px;
+      min-height:320px;
+    }
 
-.section-title{
-color:var(--deep-red);
-font-size:clamp(2rem,4vw,3.4rem);
-text-transform:uppercase;
-line-height:0.95;
-margin-bottom:18px;
-}
+    .section-title{
+      color:var(--deep-red);
+      font-size:clamp(2rem,4vw,3.4rem);
+      text-transform:uppercase;
+      line-height:0.95;
+      margin-bottom:18px;
+    }
 
-/* ABOUT */
+    /* ABOUT */
 
-.about-wrap{
-display:flex;
-flex-direction:column;
-gap:18px;
-}
+    .about-wrap{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
 
-.about-text p{
-margin-bottom:12px;
-font-size:0.98rem;
-}
+    .about-text p{
+      margin-bottom:12px;
+      font-size:0.98rem;
+    }
 
-.mini-photo{
-width:100%;
-height:360px;
-overflow:hidden;
-background:#e8ddd6;
-}
+    .mini-photo{
+      width:100%;
+      height:360px;
+      overflow:hidden;
+      background:#e8ddd6;
+    }
 
-.mini-photo img{
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center 20%;
-}
+    .mini-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 20%;
+    }
 
-/* SKILLS */
+    /* SKILLS */
 
-.skills-list{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
-margin-top:12px;
-margin-bottom:18px;
-}
+    .skills-list{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:12px;
+      margin-bottom:18px;
+    }
 
-.skill-column h3{
-font-size:1rem;
-margin-bottom:10px;
-color:var(--deep-red);
-text-transform:uppercase;
-letter-spacing:1px;
-}
+    .skill-column h3{
+      font-size:1rem;
+      margin-bottom:10px;
+      color:var(--deep-red);
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
 
-.pill{
-display:inline-block;
-background:var(--deep-red);
-color:var(--white);
-padding:7px 12px;
-border-radius:999px;
-margin:0 8px 10px 0;
-font-size:0.92rem;
-}
+    .pill{
+      display:inline-block;
+      background:var(--deep-red);
+      color:var(--white);
+      padding:7px 12px;
+      border-radius:999px;
+      margin:0 8px 10px 0;
+      font-size:0.92rem;
+    }
 
-/* CONTACT */
+    /* CONTACT */
 
-.contact-box{
-border-top:1px solid #d8b0ae;
-padding-top:14px;
-font-size:0.96rem;
-display:grid;
-gap:6px;
-}
+    .contact-box{
+      border-top:1px solid #d8b0ae;
+      padding-top:14px;
+      font-size:0.96rem;
+      display:grid;
+      gap:6px;
+    }
 
-.contact-box a{
-text-decoration:none;
-color:var(--deep-red);
-font-weight:bold;
-display:inline-block;
-padding:6px 0;
-position:relative;
-}
+    .contact-box a{
+      text-decoration:none;
+      color:var(--deep-red);
+      font-weight:bold;
+      display:inline-block;
+      padding:6px 0;
+      position:relative;
+    }
 
-.contact-box a::after{
-content:"";
-display:block;
-width:100%;
-height:1px;
-background:var(--deep-red);
-margin-top:2px;
-opacity:0.65;
-}
+    .contact-box a::after{
+      content:"";
+      display:block;
+      width:100%;
+      height:1px;
+      background:var(--deep-red);
+      margin-top:2px;
+      opacity:0.65;
+    }
 
-/* PROJECTS */
+    /* PROJECTS */
 
-.project-cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:14px;
-margin-top:12px;
-}
+    .project-cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:12px;
+    }
 
-.project-card{
-background:var(--white);
-border:2px solid #ecd8d6;
-padding:14px;
-display:flex;
-flex-direction:column;
-gap:10px;
-min-height:220px;
-transition:transform 0.2s ease;
-}
+    .project-card{
+      background:var(--white);
+      border:2px solid #ecd8d6;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height:220px;
+      transition:transform 0.2s ease;
+    }
 
-.project-card:hover{
-transform:translateY(-4px);
-}
+    .project-card:hover{
+      transform:translateY(-4px);
+    }
 
-.project-thumb{
-position:relative;
-aspect-ratio:4/3;
-overflow:hidden;
-background:#d8c2bf;
-}
+    .project-thumb{
+      position:relative;
+      aspect-ratio:4/3;
+      overflow:hidden;
+      background:#d8c2bf;
+    }
 
-.project-thumb img{
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center top;
-filter:saturate(0.95) contrast(0.98) brightness(0.88);
-transform:scale(1.02);
-transition:transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
-opacity:0.92;
-}
+    .project-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+      filter:saturate(0.95) contrast(0.98) brightness(0.88);
+      transform:scale(1.02);
+      transition:transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+      opacity:0.92;
+    }
 
-.project-thumb::after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(to top, rgba(61,9,12,0.3), rgba(61,9,12,0.08));
-pointer-events:none;
-}
+    .project-thumb::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(61,9,12,0.3), rgba(61,9,12,0.08));
+      pointer-events:none;
+    }
 
-.project-card:hover .project-thumb img{
-transform:scale(1.06);
-filter:saturate(1) contrast(1) brightness(0.94);
-opacity:1;
-}
+    .project-card:hover .project-thumb img{
+      transform:scale(1.06);
+      filter:saturate(1) contrast(1) brightness(0.94);
+      opacity:1;
+    }
 
-.project-card h3{
-color:var(--deep-red);
-font-size:1.1rem;
-text-transform:uppercase;
-}
+    .project-card h3{
+      color:var(--deep-red);
+      font-size:1.1rem;
+      text-transform:uppercase;
+    }
 
-.project-card p{
-font-size:0.95rem;
-flex-grow:1;
-}
+    .project-card p{
+      font-size:0.95rem;
+      flex-grow:1;
+    }
 
-.project-link{
-font-weight:bold;
-color:var(--deep-red);
-text-decoration:underline;
-}
+    .project-link{
+      font-weight:bold;
+      color:var(--deep-red);
+      text-decoration:underline;
+    }
 
-/* MOBILE */
+    /* MOBILE */
 
-@media (max-width:900px){
+    @media (max-width:900px){
+      .grid,
+      .project-cards,
+      .skills-list{
+        grid-template-columns:1fr;
+      }
 
-.grid,
-.project-cards,
-.skills-list{
-grid-template-columns:1fr;
-}
+      .hero{
+        min-height:68vh;
+        background-position:center 35%;
+      }
 
-.hero{
-min-height:68vh;
-background-position:center 35%;
-}
+      .hero-text{
+        left:18px;
+        bottom:18px;
+        max-width:92%;
+      }
 
-.hero-text{
-left:18px;
-bottom:18px;
-max-width:92%;
-}
+      .big-name{
+        letter-spacing:0.1em;
+        font-size:clamp(2.8rem,12vw,5rem);
+      }
 
-.big-name{
-letter-spacing:0.1em;
-font-size:clamp(2.8rem,12vw,5rem);
-}
-
-.mini-photo{
-height:420px;
-}
-
-}
-</style>
+      .mini-photo{
+        height:420px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<main class="page">
+  <main class="page">
 
-<section class="panel hero">
-<div class="hero-text">
-<h1 class="big-name display-font">
-Scarlett<br>Sandy
-</h1>
-</div>
-</section>
+    <section class="panel hero">
+      <div class="hero-text">
+        <h1 class="big-name display-font">
+          Scarlett<br>Sandy
+        </h1>
+      </div>
+    </section>
 
-<section class="grid">
+    <section class="grid">
 
-<div class="panel section">
-<h2 class="section-title display-font">About Me</h2>
+      <div class="panel section">
+        <h2 class="section-title display-font">About Me</h2>
 
-<div class="about-wrap">
-<div class="about-text">
-<p>I am a GBDA student interested in design, storytelling, and creative digital work.</p>
-<p>I like making projects that feel polished, visual, and easy to connect with.</p>
-<p>My main interests are UX, branding, digital media, and creative direction.</p>
-</div>
+        <div class="about-wrap">
+          <div class="about-text">
+            <p>I am a GBDA student interested in design, storytelling, and creative digital work.</p>
+            <p>I like making projects that feel polished, visual, and easy to connect with.</p>
+            <p>My main interests are UX, branding, digital media, and creative direction.</p>
+          </div>
 
-<div class="mini-photo">
-<img src="secondray.JPG" alt="Scarlett Sandy photo">
-</div>
-</div>
-</div>
+          <div class="mini-photo">
+            <img src="secondray.JPG" alt="Scarlett Sandy photo">
+          </div>
+        </div>
+      </div>
 
-<div class="panel section">
-<h2 class="section-title display-font">What I Do</h2>
+      <div class="panel section">
+        <h2 class="section-title display-font">What I Do</h2>
 
-<div class="skills-list">
-<div class="skill-column">
-<h3>Design</h3>
-<span class="pill">UX/UI</span>
-<span class="pill">Branding</span>
-<span class="pill">Wireframes</span>
-<span class="pill">Prototypes</span>
-<span class="pill">Visual Design</span>
-</div>
+        <div class="skills-list">
+          <div class="skill-column">
+            <h3>Design</h3>
+            <span class="pill">UX/UI</span>
+            <span class="pill">Branding</span>
+            <span class="pill">Wireframes</span>
+            <span class="pill">Prototypes</span>
+            <span class="pill">Visual Design</span>
+          </div>
 
-<div class="skill-column">
-<h3>Creative</h3>
-<span class="pill">Storytelling</span>
-<span class="pill">Content</span>
-<span class="pill">Research</span>
-<span class="pill">Presentations</span>
-<span class="pill">Media</span>
-</div>
-</div>
+          <div class="skill-column">
+            <h3>Creative</h3>
+            <span class="pill">Storytelling</span>
+            <span class="pill">Content</span>
+            <span class="pill">Research</span>
+            <span class="pill">Presentations</span>
+            <span class="pill">Media</span>
+          </div>
+        </div>
 
-<div class="contact-box">
-<p><strong>Email</strong></p>
-<p><a href="mailto:scarletts983@gmail.com">scarletts983@gmail.com</a></p>
+        <div class="contact-box">
+          <p><strong>Email</strong></p>
+          <p><a href="mailto:scarletts983@gmail.com">scarletts983@gmail.com</a></p>
 
-<p><strong>LinkedIn</strong></p>
-<p><a href="https://www.linkedin.com/in/scarlett-sandy-00a3a2384/" target="_blank">Connect with me on LinkedIn</a></p>
+          <p><strong>LinkedIn</strong></p>
+          <p><a href="https://www.linkedin.com/in/scarlett-sandy-00a3a2384/" target="_blank">Connect with me on LinkedIn</a></p>
 
-<p><strong>Location</strong></p>
-<p>Waterloo, ON</p>
-</div>
-</div>
+          <p><strong>Location</strong></p>
+          <p>Waterloo, ON</p>
+        </div>
+      </div>
 
-</section>
+    </section>
 
-<section class="panel section">
-<h2 class="section-title display-font">Featured Projects</h2>
+    <section class="panel section">
+      <h2 class="section-title display-font">Featured Projects</h2>
 
-<div class="project-cards">
+      <div class="project-cards">
 
-<article class="project-card">
-<div class="project-thumb">
-<img src="1.png" alt="Curated Frames preview">
-</div>
-<h3>Curated Frames</h3>
-<p>A film-focused website concept that combines editorial visuals, organized browsing, and a cinematic user experience.</p>
-<a class="project-link" href="project1.html">View Project</a>
-</article>
+        <article class="project-card">
+          <div class="project-thumb">
+            <img src="1.png" alt="Curated Frames preview">
+          </div>
+          <h3>Curated Frames</h3>
+          <p>A film-focused website concept that combines editorial visuals, organized browsing, and a cinematic user experience.</p>
+          <a class="project-link" href="https://scrlettsandy.github.io/project1/" target="_blank">View Project</a>
+        </article>
 
-<article class="project-card">
-<div class="project-thumb">
-<img src="4.jpg" alt="Good Design preview">
-</div>
-<h3>Good Design</h3>
-<p>A bold editorial magazine project using portraiture, texture, and typography to explore what good design means to me.</p>
-<a class="project-link" href="project2.html">View Project</a>
-</article>
+        <article class="project-card">
+          <div class="project-thumb">
+            <img src="4.jpg" alt="Good Design preview">
+          </div>
+          <h3>Good Design</h3>
+          <p>A bold editorial magazine project using portraiture, texture, and typography to explore what good design means to me.</p>
+          <a class="project-link" href="https://scrlettsandy.github.io/prodject2/" target="_blank">View Project</a>
+        </article>
 
-<article class="project-card">
-<div class="project-thumb">
-<img src="8.png" alt="The Princes Gate preview">
-</div>
-<h3>The Princes Gate</h3>
-<p>A silent short film focused on atmosphere, observation, and visual storytelling through the setting of the Princess Cafe.</p>
-<a class="project-link" href="project3.html">View Project</a>
-</article>
+        <article class="project-card">
+          <div class="project-thumb">
+            <img src="8.png" alt="Princess Cafe preview">
+          </div>
+          <h3>Princess Cafe</h3>
+          <p>A silent short film focused on atmosphere, observation, and visual storytelling through the setting of the Princess Cafe.</p>
+          <a class="project-link" href="https://scrlettsandy.github.io/prodject3/" target="_blank">View Project</a>
+        </article>
 
-</div>
-</section>
+      </div>
+    </section>
 
-</main>
+  </main>
 </body>
 </html>
