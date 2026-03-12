@@ -1,370 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scarlett Sandy Portfolio</title>
-  <style>
-    :root {
-      --deep-red: #4b0d0d;
-      --wine: #3a0808;
-      --soft-rose: #d8b0ae;
-      --cream: #f8f2ec;
-      --text-dark: #3c1616;
-      --white: #ffffff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scarlett Sandy Portfolio</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+:root{
+--deep-red:#3d090c;
+--wine:#280506;
+--soft-rose:#d3aaaa;
+--cream:#f8f2ec;
+--text-dark:#3c1616;
+--white:#ffffff;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--soft-rose);
-      color: var(--text-dark);
-      line-height: 1.5;
-    }
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
-    h1, h2, h3, .display-font {
-      font-family: Georgia, "Times New Roman", serif;
-      letter-spacing: 1px;
-    }
+html{
+scroll-behavior:smooth;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(rgba(61,9,12,0.78),rgba(61,9,12,0.78)),url("roses.jpg") center/cover fixed;
+color:var(--text-dark);
+line-height:1.5;
+}
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+h1,h2,h3,.display-font{
+font-family:Georgia,"Times New Roman",serif;
+letter-spacing:1px;
+}
 
-    .page {
-      width: min(1200px, 94vw);
-      margin: 0 auto;
-      padding: 18px 0 28px;
-    }
+a{
+text-decoration:none;
+color:inherit;
+}
 
-    .panel {
-      background: var(--cream);
-      border: 10px solid var(--soft-rose);
-      margin-bottom: 18px;
-      overflow: hidden;
-    }
+img{
+max-width:100%;
+display:block;
+}
 
-    .hero {
-      min-height: 78vh;
-      background: linear-gradient(rgba(70, 10, 10, 0.88), rgba(70, 10, 10, 0.88)), url("roses.jpg") center/cover;
-      color: var(--white);
-      position: relative;
-      padding: 36px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-    }
+.page{
+width:min(1200px,94vw);
+margin:0 auto;
+padding:18px 0 28px;
+}
 
-    .hero-text {
-      align-self: start;
-    }
+.panel{
+background:var(--cream);
+border:10px solid rgba(211,170,170,0.9);
+margin-bottom:18px;
+overflow:hidden;
+}
 
-    .big-name {
-      font-size: clamp(3.4rem, 9vw, 7.4rem);
-      line-height: 0.95;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
+/* HERO */
 
-    .sub-name {
-      font-size: clamp(1.8rem, 4vw, 3.8rem);
-      font-weight: 300;
-      line-height: 1;
-      text-transform: uppercase;
-      margin-bottom: 26px;
-    }
+.hero{
+min-height:82vh;
+background:
+linear-gradient(rgba(20,0,0,0.2),rgba(20,0,0,0.35)),
+url("main.jpg") center 35%/cover;
+color:var(--white);
+position:relative;
+padding:36px;
+display:flex;
+align-items:flex-end;
+}
 
-    .tagline {
-      max-width: 560px;
-      font-size: 1.1rem;
-      margin-bottom: 22px;
-    }
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(25,0,0,0.45),rgba(25,0,0,0.12));
+z-index:1;
+}
 
-    .contact {
-      font-size: 1rem;
-      display: grid;
-      gap: 6px;
-    }
+.hero-text{
+position:absolute;
+left:34px;
+bottom:34px;
+z-index:2;
+max-width:85%;
+mix-blend-mode:screen;
+}
 
-    .contact a {
-      text-decoration: underline;
-    }
+.big-name{
+font-size:clamp(3.7rem,9vw,7.8rem);
+line-height:0.85;
+text-transform:uppercase;
+letter-spacing:0.22em;
+color:rgba(255,244,240,0.82);
+text-shadow:0 2px 18px rgba(0,0,0,0.18);
+}
 
-    .photo-slot {
-      align-self: end;
-      justify-self: center;
-      width: min(360px, 100%);
-      height: 540px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255,255,255,0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+/* GRID */
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
+.grid{
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+gap:18px;
+}
 
-    .section {
-      padding: 28px;
-      min-height: 320px;
-    }
+.section{
+padding:28px;
+min-height:320px;
+}
 
-    .section-title {
-      color: var(--deep-red);
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      text-transform: uppercase;
-      line-height: 0.95;
-      margin-bottom: 18px;
-    }
+.section-title{
+color:var(--deep-red);
+font-size:clamp(2rem,4vw,3.4rem);
+text-transform:uppercase;
+line-height:0.95;
+margin-bottom:18px;
+}
 
-    .about-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
-      align-items: start;
-    }
+/* ABOUT */
 
-    .about-text p {
-      margin-bottom: 14px;
-      font-size: 1rem;
-    }
+.about-wrap{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
 
-    .mini-photo {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      background: #e8ddd6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      color: var(--deep-red);
-      font-weight: bold;
-    }
+.about-text p{
+margin-bottom:12px;
+font-size:0.98rem;
+}
 
-    .skills-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 12px;
-    }
+.mini-photo{
+width:100%;
+height:360px;
+overflow:hidden;
+background:#e8ddd6;
+}
 
-    .skill-column h3 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      color: var(--deep-red);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+.mini-photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center 20%;
+}
 
-    .pill {
-      display: inline-block;
-      background: var(--deep-red);
-      color: var(--white);
-      padding: 7px 12px;
-      border-radius: 999px;
-      margin: 0 8px 10px 0;
-      font-size: 0.92rem;
-    }
+/* SKILLS */
 
-    .project-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 12px;
-    }
+.skills-list{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+margin-top:12px;
+margin-bottom:18px;
+}
 
-    .project-card {
-      background: var(--white);
-      border: 2px solid #ecd8d6;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-height: 220px;
-      transition: transform 0.2s ease;
-    }
+.skill-column h3{
+font-size:1rem;
+margin-bottom:10px;
+color:var(--deep-red);
+text-transform:uppercase;
+letter-spacing:1px;
+}
 
-    .project-card:hover {
-      transform: translateY(-4px);
-    }
+.pill{
+display:inline-block;
+background:var(--deep-red);
+color:var(--white);
+padding:7px 12px;
+border-radius:999px;
+margin:0 8px 10px 0;
+font-size:0.92rem;
+}
 
-    .project-thumb {
-      aspect-ratio: 4 / 3;
-      background: linear-gradient(135deg, #ecd8d6, #c68f8f);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10px;
-      color: var(--wine);
-      font-weight: bold;
-      text-transform: uppercase;
-    }
+/* CONTACT */
 
-    .project-card h3 {
-      color: var(--deep-red);
-      font-size: 1.1rem;
-      text-transform: uppercase;
-    }
+.contact-box{
+border-top:1px solid #d8b0ae;
+padding-top:14px;
+font-size:0.96rem;
+display:grid;
+gap:6px;
+}
 
-    .project-card p {
-      font-size: 0.95rem;
-      flex-grow: 1;
-    }
+.contact-box a{
+text-decoration:none;
+color:var(--deep-red);
+font-weight:bold;
+display:inline-block;
+padding:6px 0;
+position:relative;
+}
 
-    .project-link {
-      font-weight: bold;
-      color: var(--deep-red);
-      text-decoration: underline;
-    }
+.contact-box a::after{
+content:"";
+display:block;
+width:100%;
+height:1px;
+background:var(--deep-red);
+margin-top:2px;
+opacity:0.65;
+}
 
-    .footer-note {
-      text-align: center;
-      padding: 10px 20px 30px;
-      color: var(--wine);
-      font-size: 0.95rem;
-    }
+/* PROJECTS */
 
-    @media (max-width: 900px) {
-      .hero,
-      .grid,
-      .about-wrap,
-      .project-cards,
-      .skills-list {
-        grid-template-columns: 1fr;
-      }
+.project-cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-top:12px;
+}
 
-      .hero {
-        min-height: auto;
-      }
+.project-card{
+background:var(--white);
+border:2px solid #ecd8d6;
+padding:14px;
+display:flex;
+flex-direction:column;
+gap:10px;
+min-height:220px;
+transition:transform 0.2s ease;
+}
 
-      .photo-slot {
-        height: 380px;
-      }
-    }
-  </style>
+.project-card:hover{
+transform:translateY(-4px);
+}
+
+.project-thumb{
+aspect-ratio:4/3;
+background:linear-gradient(135deg,#ecd8d6,#c68f8f);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:10px;
+color:var(--wine);
+font-weight:bold;
+text-transform:uppercase;
+}
+
+.project-card h3{
+color:var(--deep-red);
+font-size:1.1rem;
+text-transform:uppercase;
+}
+
+.project-card p{
+font-size:0.95rem;
+flex-grow:1;
+}
+
+.project-link{
+font-weight:bold;
+color:var(--deep-red);
+text-decoration:underline;
+}
+
+.footer-note{
+text-align:center;
+padding:10px 20px 30px;
+color:#fff4f0;
+font-size:0.95rem;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+
+.grid,
+.project-cards,
+.skills-list{
+grid-template-columns:1fr;
+}
+
+.hero{
+min-height:68vh;
+background-position:center 35%;
+}
+
+.hero-text{
+left:18px;
+bottom:18px;
+max-width:92%;
+}
+
+.big-name{
+letter-spacing:0.1em;
+font-size:clamp(2.8rem,12vw,5rem);
+}
+
+.mini-photo{
+height:420px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
-  <main class="page">
-    <section class="panel hero">
-      <div class="hero-text" style="position:absolute; left:40px; bottom:120px; max-width:600px; z-index:1;">
-        <h1 class="big-name display-font">Portfolio</h1>
-        <h2 class="sub-name">Scarlett Sandy</h2>
-      </div>
-      </div>
 
-      <div class="photo-slot" style="border:none;background:none;height:auto;width:520px;position:absolute;right:40px;bottom:0;">
-        <img src="main.png" alt="Scarlett Sandy portrait" style="width:100%;height:auto;">
-      </div>
-    </section>
+<main class="page">
 
-    <section class="grid">
-      <div class="panel section">
-        <h2 class="section-title display-font">About Me</h2>
-        <div class="about-wrap">
-          <div class="about-text">
-            <p>
-              I am a Global Business and Digital Arts student focused on design, storytelling, and creative digital work.
-              storytelling, and building experiences that connect with people.
-            </p>
-            <p>
-              My work combines creativity and strategy. I enjoy designing projects that are visually
-              strong, easy to use, and grounded in clear ideas.
-            </p>
-            <p>
-              I am especially interested in UX design, branding, creative campaigns, and digital
-              experiences that leave a lasting impression.
-            </p>
-          </div>
-          <div class="mini-photo" style="background:none;padding:0;">
-            <img src="secondray.JPG" alt="Scarlett Sandy photo" style="width:100%;height:auto;">
-          </div>
-        </div>
-      </div>
+<section class="panel hero">
+<div class="hero-text">
+<h1 class="big-name display-font">
+Scarlett<br>Sandy
+</h1>
+</div>
+</section>
 
-      <div class="panel section">
-        <h2 class="section-title display-font">I Create</h2>
-        <div class="skills-list">
-          <div class="skill-column">
-            <h3>Design</h3>
-            <span class="pill">UX/UI</span>
-            <span class="pill">Branding</span>
-            <span class="pill">Wireframes</span>
-            <span class="pill">Prototypes</span>
-            <span class="pill">Visual Design</span>
-          </div>
-          <div class="skill-column">
-            <h3>Creative Work</h3>
-            <span class="pill">Storytelling</span>
-            <span class="pill">Content</span>
-            <span class="pill">Research</span>
-            <span class="pill">Presentations</span>
-            <span class="pill">Media Production</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="grid">
 
-    <section class="panel section">
-      <h2 class="section-title display-font">Featured Projects</h2>
-      <div class="project-cards">
-        <article class="project-card">
-          <div class="project-thumb">project 1 image</div>
-          <h3>Project One</h3>
-          <p>
-            Add a short summary here: what the project was, what your role was, and what kind of work it shows.
-          </p>
-          <a class="project-link" href="project1.html">View Project</a>
-        </article>
+<div class="panel section">
 
-        <article class="project-card">
-          <div class="project-thumb">project 2 image</div>
-          <h3>Project Two</h3>
-          <p>
-            Add a short summary here: highlight your process, contribution, and the final outcome.
-          </p>
-          <a class="project-link" href="project2.html">View Project</a>
-        </article>
+<h2 class="section-title display-font">About Me</h2>
 
-        <article class="project-card">
-          <div class="project-thumb">project 3 image</div>
-          <h3>Project Three</h3>
-          <p>
-            Add a short summary here: show employers what skills this project proves you have.
-          </p>
-          <a class="project-link" href="project3.html">View Project</a>
-        </article>
-      </div>
-    </section>
+<div class="about-wrap">
 
-    <p class="footer-note">
-      Replace the placeholder text and images with your real information, then make matching pages for each project.
-    </p>
-  </main>
+<div class="about-text">
+<p>I am a GBDA student interested in design, storytelling, and creative digital work.</p>
+<p>I like making projects that feel polished, visual, and easy to connect with.</p>
+<p>My main interests are UX, branding, digital media, and creative direction.</p>
+</div>
+
+<div class="mini-photo">
+<img src="secondray.JPG" alt="Scarlett Sandy photo">
+</div>
+
+</div>
+</div>
+
+<div class="panel section">
+
+<h2 class="section-title display-font">What I Do</h2>
+
+<div class="skills-list">
+
+<div class="skill-column">
+<h3>Design</h3>
+<span class="pill">UX/UI</span>
+<span class="pill">Branding</span>
+<span class="pill">Wireframes</span>
+<span class="pill">Prototypes</span>
+<span class="pill">Visual Design</span>
+</div>
+
+<div class="skill-column">
+<h3>Creative</h3>
+<span class="pill">Storytelling</span>
+<span class="pill">Content</span>
+<span class="pill">Research</span>
+<span class="pill">Presentations</span>
+<span class="pill">Media</span>
+</div>
+
+</div>
+
+<div class="contact-box">
+<p><strong>Email</strong></p>
+<p><a href="mailto:scarletts983@gmail.com">scarletts983@gmail.com</a></p>
+
+<p><strong>LinkedIn</strong></p>
+<p><a href="https://www.linkedin.com/in/scarlett-sandy-00a3a2384/" target="_blank">Connect with me on LinkedIn</a></p>
+
+<p><strong>Location</strong></p>
+<p>Waterloo, ON</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="panel section">
+
+<h2 class="section-title display-font">Featured Projects</h2>
+
+<div class="project-cards">
+
+<article class="project-card">
+<div class="project-thumb">project 1 image</div>
+<h3>Project One</h3>
+<p>Add a short summary here explaining the project and your role.</p>
+<a class="project-link" href="project1.html">View Project</a>
+</article>
+
+<article class="project-card">
+<div class="project-thumb">project 2 image</div>
+<h3>Project Two</h3>
+<p>Highlight your process, contribution, and the final outcome.</p>
+<a class="project-link" href="project2.html">View Project</a>
+</article>
+
+<article class="project-card">
+<div class="project-thumb">project 3 image</div>
+<h3>Project Three</h3>
+<p>Show employers what skills this project demonstrates.</p>
+<a class="project-link" href="project3.html">View Project</a>
+</article>
+
+</div>
+</section>
+
+<p class="footer-note">
+Replace the project details with your real work.
+</p>
+
+</main>
+
 </body>
 </html>
