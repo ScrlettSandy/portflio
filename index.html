@@ -7,12 +7,16 @@
 
   <style>
     :root{
-      --deep-red:#3d090c;
-      --wine:#280506;
-      --soft-rose:#d3aaaa;
-      --cream:#f8f2ec;
-      --text-dark:#3c1616;
-      --white:#ffffff;
+      --bg:#120203;
+      --cherry:#5d0d12;
+      --cherry-dark:#2a0508;
+      --wine:#3b080c;
+      --rose:#e8d7d1;
+      --soft:#f6ece7;
+      --text:#fff8f5;
+      --muted:#d8c3bc;
+      --line:rgba(255,255,255,0.12);
+      --shadow:0 20px 60px rgba(0,0,0,0.35);
     }
 
     *{
@@ -26,391 +30,622 @@
     }
 
     body{
-      font-family:Arial, Helvetica, sans-serif;
-      background:linear-gradient(rgba(61,9,12,0.78),rgba(61,9,12,0.78)),url("roses.jpg") center/cover fixed;
-      color:var(--text-dark);
-      line-height:1.5;
-    }
-
-    h1,h2,h3,.display-font{
-      font-family:Georgia,"Times New Roman",serif;
-      letter-spacing:1px;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(138,18,30,0.45), transparent 35%),
+        radial-gradient(circle at top right, rgba(118,15,24,0.25), transparent 30%),
+        linear-gradient(180deg, #4a0a10 0%, #220407 42%, #120203 100%);
+      color:var(--text);
+      overflow-x:hidden;
     }
 
     img{
-      max-width:100%;
       display:block;
+      max-width:100%;
     }
 
-    .page{
-      width:min(1200px,94vw);
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    h1,h2,h3,.display{
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    section{
+      width:100%;
+      position:relative;
+    }
+
+    .container{
+      width:min(1200px, 92vw);
       margin:0 auto;
-      padding:18px 0 28px;
     }
-
-    .panel{
-      background:var(--cream);
-      border:10px solid rgba(211,170,170,0.9);
-      margin-bottom:18px;
-      overflow:hidden;
-    }
-
-    /* HERO */
 
     .hero{
-      min-height:82vh;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
       background:
-        linear-gradient(rgba(20,0,0,0.2),rgba(20,0,0,0.35)),
-        url("main.jpg") center 35%/cover;
-      color:var(--white);
-      position:relative;
-      padding:36px;
-      display:flex;
-      align-items:flex-end;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top,rgba(25,0,0,0.45),rgba(25,0,0,0.12));
-      z-index:1;
-    }
-
-    .hero-text{
-      position:absolute;
-      left:34px;
-      bottom:34px;
-      z-index:2;
-      max-width:85%;
+        linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.18)),
+        url("roses.jpg") center/cover;
+      opacity:0.12;
       mix-blend-mode:screen;
-    }
-
-    .big-name{
-      font-size:clamp(3.7rem,9vw,7.8rem);
-      line-height:0.85;
-      text-transform:uppercase;
-      letter-spacing:0.22em;
-      color:rgba(255,244,240,0.82);
-      text-shadow:0 2px 18px rgba(0,0,0,0.18);
-    }
-
-    /* GRID */
-
-    .grid{
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:18px;
-    }
-
-    .section{
-      padding:28px;
-      min-height:320px;
-    }
-
-    .section-title{
-      color:var(--deep-red);
-      font-size:clamp(2rem,4vw,3.4rem);
-      text-transform:uppercase;
-      line-height:0.95;
-      margin-bottom:18px;
-    }
-
-    /* ABOUT */
-
-    .about-wrap{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
-
-    .about-text p{
-      margin-bottom:12px;
-      font-size:0.98rem;
-    }
-
-    .mini-photo{
-      width:100%;
-      height:360px;
-      overflow:hidden;
-      background:#e8ddd6;
-    }
-
-    .mini-photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center 20%;
-    }
-
-    /* SKILLS */
-
-    .skills-list{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin-top:12px;
-      margin-bottom:18px;
-    }
-
-    .skill-column h3{
-      font-size:1rem;
-      margin-bottom:10px;
-      color:var(--deep-red);
-      text-transform:uppercase;
-      letter-spacing:1px;
-    }
-
-    .pill{
-      display:inline-block;
-      background:var(--deep-red);
-      color:var(--white);
-      padding:7px 12px;
-      border-radius:999px;
-      margin:0 8px 10px 0;
-      font-size:0.92rem;
-    }
-
-    /* CONTACT */
-
-    .contact-box{
-      border-top:1px solid #d8b0ae;
-      padding-top:14px;
-      font-size:0.96rem;
-      display:grid;
-      gap:6px;
-    }
-
-    .contact-box a{
-      text-decoration:none;
-      color:var(--deep-red);
-      font-weight:bold;
-      display:inline-block;
-      padding:6px 0;
-      position:relative;
-    }
-
-    .contact-box a::after{
-      content:"";
-      display:block;
-      width:100%;
-      height:1px;
-      background:var(--deep-red);
-      margin-top:2px;
-      opacity:0.65;
-    }
-
-    /* PROJECTS */
-
-    .project-cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:12px;
-    }
-
-    .project-card{
-      background:var(--white);
-      border:2px solid #ecd8d6;
-      padding:14px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      min-height:220px;
-      transition:transform 0.2s ease;
-    }
-
-    .project-card:hover{
-      transform:translateY(-4px);
-    }
-
-    .project-thumb{
-      position:relative;
-      aspect-ratio:4/3;
-      overflow:hidden;
-      background:#d8c2bf;
-    }
-
-    .project-thumb img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center top;
-      filter:saturate(0.95) contrast(0.98) brightness(0.88);
-      transform:scale(1.02);
-      transition:transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
-      opacity:0.92;
-    }
-
-    .project-thumb::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top, rgba(61,9,12,0.3), rgba(61,9,12,0.08));
       pointer-events:none;
     }
 
-    .project-card:hover .project-thumb img{
-      transform:scale(1.06);
-      filter:saturate(1) contrast(1) brightness(0.94);
-      opacity:1;
+    .hero-grid{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items:end;
+      min-height:100vh;
+      gap:20px;
+      padding:30px 0;
     }
 
-    .project-card h3{
-      color:var(--deep-red);
-      font-size:1.1rem;
+    .hero-text{
+      position:relative;
+      padding-bottom:60px;
+      z-index:2;
+    }
+
+    .portfolio-word{
+      font-size:clamp(4.5rem, 11vw, 8.7rem);
+      line-height:0.88;
+      letter-spacing:0.06em;
+      color:rgba(255,245,240,0.95);
       text-transform:uppercase;
+      margin-bottom:24px;
+      position:relative;
+      z-index:1;
     }
 
-    .project-card p{
+    .name-block{
+      position:relative;
+      z-index:3;
+    }
+
+    .name-top{
+      font-size:clamp(1.5rem, 4.8vw, 4rem);
+      font-weight:300;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      color:rgba(255,247,244,0.95);
+      margin-left:6px;
+    }
+
+    .name-bottom{
+      font-size:clamp(2.2rem, 5.8vw, 5.2rem);
+      font-weight:300;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+      color:rgba(255,247,244,0.95);
+      margin-top:10px;
+      margin-left:230px;
+    }
+
+    .hero-sub{
+      margin-top:26px;
+      max-width:520px;
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.7;
+      padding-left:8px;
+      position:relative;
+      z-index:3;
+    }
+
+    .socials{
+      margin-top:28px;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      padding-left:8px;
+      position:relative;
+      z-index:3;
+    }
+
+    .socials a{
       font-size:0.95rem;
-      flex-grow:1;
+      color:var(--text);
+      border-bottom:1px solid rgba(255,255,255,0.45);
+      padding-bottom:2px;
+      opacity:0.92;
+      transition:0.25s ease;
+    }
+
+    .socials a:hover{
+      opacity:1;
+      transform:translateY(-1px);
+    }
+
+    .hero-photo-wrap{
+      position:absolute;
+      right:2%;
+      bottom:0;
+      width:min(700px, 58vw);
+      height:95vh;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      z-index:2;
+      pointer-events:none;
+    }
+
+    .hero-photo{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center bottom;
+      filter:contrast(1.02) saturate(0.92) brightness(0.92);
+      position:relative;
+      z-index:2;
+      max-height:95vh;
+      max-width:100%;
+    }
+
+    .scroll-down{
+      position:absolute;
+      bottom:26px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:4;
+      font-size:0.9rem;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.82);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      animation:floaty 2.2s ease-in-out infinite;
+    }
+
+    .scroll-line{
+      width:1px;
+      height:44px;
+      background:rgba(255,255,255,0.45);
+    }
+
+    @keyframes floaty{
+      0%,100%{ transform:translateX(-50%) translateY(0); }
+      50%{ transform:translateX(-50%) translateY(8px); }
+    }
+
+    .content-section{
+      padding:110px 0;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    }
+
+    .section-heading{
+      font-size:clamp(2.3rem, 5vw, 4.4rem);
+      line-height:0.95;
+      text-transform:uppercase;
+      margin-bottom:28px;
+      color:#fff6f2;
+    }
+
+    .eyebrow{
+      font-size:0.85rem;
+      text-transform:uppercase;
+      letter-spacing:0.25em;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .fade-up{
+      opacity:0;
+      transform:translateY(34px);
+      transition:opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .fade-up.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:0.95fr 1.05fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .about-photo-box{
+      background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.08);
+      padding:18px;
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .about-photo{
+      width:100%;
+      height:560px;
+      object-fit:cover;
+      object-position:center 20%;
+      border-radius:16px;
+      filter:brightness(0.94);
+    }
+
+    .about-text{
+      color:#f7ebe7;
+    }
+
+    .about-text p{
+      font-size:1.02rem;
+      line-height:1.9;
+      color:var(--muted);
+      margin-bottom:16px;
+      max-width:640px;
+    }
+
+    .tags{
+      margin-top:24px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .tag{
+      padding:10px 16px;
+      border:1px solid rgba(255,255,255,0.14);
+      border-radius:999px;
+      color:#fff8f6;
+      background:rgba(255,255,255,0.04);
+      font-size:0.95rem;
+    }
+
+    .projects-intro{
+      max-width:700px;
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:34px;
+    }
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .project-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .project-card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(255,255,255,0.22);
+      background:linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+    }
+
+    .project-image{
+      width:100%;
+      aspect-ratio: 4 / 3;
+      object-fit:cover;
+      object-position:center top;
+      filter:brightness(0.82) saturate(0.92);
+      transition:transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .project-card:hover .project-image{
+      transform:scale(1.04);
+      filter:brightness(0.92) saturate(1);
+    }
+
+    .project-body{
+      padding:22px;
+    }
+
+    .project-body h3{
+      font-size:1.3rem;
+      color:#fff7f3;
+      margin-bottom:10px;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+    }
+
+    .project-body p{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:0.97rem;
+      margin-bottom:18px;
     }
 
     .project-link{
+      display:inline-block;
+      color:#fff;
       font-weight:bold;
-      color:var(--deep-red);
-      text-decoration:underline;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+      font-size:0.85rem;
+      border-bottom:1px solid rgba(255,255,255,0.5);
+      padding-bottom:3px;
     }
 
-    /* MOBILE */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      align-items:start;
+    }
 
-    @media (max-width:900px){
-      .grid,
-      .project-cards,
-      .skills-list{
+    .contact-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .contact-list a,
+    .contact-list span{
+      color:#fff7f4;
+      font-size:1rem;
+      border-bottom:1px solid rgba(255,255,255,0.18);
+      padding-bottom:10px;
+    }
+
+    footer{
+      padding:30px 0 40px;
+      text-align:center;
+      color:rgba(255,255,255,0.55);
+      font-size:0.9rem;
+    }
+
+    @media (max-width: 1000px){
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .projects-grid{
         grid-template-columns:1fr;
       }
 
       .hero{
-        min-height:68vh;
-        background-position:center 35%;
+        min-height:auto;
+        padding-top:40px;
+      }
+
+      .hero-grid{
+        min-height:auto;
+        gap:14px;
+        padding-bottom:0;
       }
 
       .hero-text{
-        left:18px;
-        bottom:18px;
-        max-width:92%;
+        padding-bottom:10px;
       }
 
-      .big-name{
-        letter-spacing:0.1em;
-        font-size:clamp(2.8rem,12vw,5rem);
+      .portfolio-word{
+        font-size:clamp(3.3rem, 15vw, 6rem);
       }
 
-      .mini-photo{
-        height:420px;
+      .name-bottom{
+        margin-left:0;
+      }
+
+      .hero-photo-wrap{
+        position:relative;
+        right:auto;
+        width:100%;
+        height:auto;
+        min-height:unset;
+        margin-top:20px;
+        pointer-events:auto;
+      }
+
+      .hero-photo{
+        width:100%;
+        height:auto;
+        max-height:75vh;
+      }
+
+      .about-photo{
+        height:430px;
+      }
+
+      .scroll-down{
+        display:none;
+      }
+    }
+
+    @media (max-width: 640px){
+      .container{
+        width:min(92vw, 1000px);
+      }
+
+      .content-section{
+        padding:82px 0;
+      }
+
+      .project-body{
+        padding:18px;
+      }
+
+      .contact-card{
+        padding:22px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
 
-    <section class="panel hero">
-      <div class="hero-text">
-        <h1 class="big-name display-font">
-          Scarlett<br>Sandy
-        </h1>
-      </div>
-    </section>
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-text fade-up show">
+        <div class="portfolio-word display">Portfolio</div>
 
-    <section class="grid">
+        <div class="name-block">
+          <div class="name-top">Scarlett</div>
+          <div class="name-bottom">Sandy</div>
+        </div>
 
-      <div class="panel section">
-        <h2 class="section-title display-font">About Me</h2>
+        <p class="hero-sub">
+          GBDA student interested in design, storytelling, digital media, and creative direction.
+          I love making work that feels polished, visual, and emotionally memorable.
+        </p>
 
-        <div class="about-wrap">
-          <div class="about-text">
-            <p>I am a GBDA student interested in design, storytelling, and creative digital work.</p>
-            <p>I like making projects that feel polished, visual, and easy to connect with.</p>
-            <p>My main interests are UX, branding, digital media, and creative direction.</p>
-          </div>
-
-          <div class="mini-photo">
-            <img src="secondray.JPG" alt="Scarlett Sandy photo">
-          </div>
+        <div class="socials">
+          <a href="#about">About Me</a>
+          <a href="#projects">Projects</a>
+          <a href="mailto:scarletts983@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/scarlett-sandy-00a3a2384/" target="_blank">LinkedIn</a>
         </div>
       </div>
 
-      <div class="panel section">
-        <h2 class="section-title display-font">What I Do</h2>
+      <div class="hero-photo-wrap fade-up show">
+        <img src="Facetune_15-03-2026-17-42-06.png" alt="Scarlett Sandy portrait" class="hero-photo">
+      </div>
+    </div>
 
-        <div class="skills-list">
-          <div class="skill-column">
-            <h3>Design</h3>
-            <span class="pill">UX/UI</span>
-            <span class="pill">Branding</span>
-            <span class="pill">Wireframes</span>
-            <span class="pill">Prototypes</span>
-            <span class="pill">Visual Design</span>
-          </div>
+    <a class="scroll-down" href="#about">
+      <span>Scroll</span>
+      <span class="scroll-line"></span>
+    </a>
+  </section>
 
-          <div class="skill-column">
-            <h3>Creative</h3>
-            <span class="pill">Storytelling</span>
-            <span class="pill">Content</span>
-            <span class="pill">Research</span>
-            <span class="pill">Presentations</span>
-            <span class="pill">Media</span>
-          </div>
-        </div>
-
-        <div class="contact-box">
-          <p><strong>Email</strong></p>
-          <p><a href="mailto:scarletts983@gmail.com">scarletts983@gmail.com</a></p>
-
-          <p><strong>LinkedIn</strong></p>
-          <p><a href="https://www.linkedin.com/in/scarlett-sandy-00a3a2384/" target="_blank">Connect with me on LinkedIn</a></p>
-
-          <p><strong>Location</strong></p>
-          <p>Waterloo, ON</p>
-        </div>
+  <section class="content-section" id="about">
+    <div class="container about-grid">
+      <div class="about-photo-box fade-up">
+        <img src="secondray.JPG" alt="Scarlett Sandy" class="about-photo">
       </div>
 
-    </section>
+      <div class="about-text fade-up">
+        <div class="eyebrow">About Me</div>
+        <h2 class="section-heading display">Creative, visual, and story-driven.</h2>
 
-    <section class="panel section">
-      <h2 class="section-title display-font">Featured Projects</h2>
+        <p>
+          I am a GBDA student interested in design, storytelling, and creative digital work.
+          I like creating projects that feel immersive, polished, and easy to connect with.
+        </p>
 
-      <div class="project-cards">
+        <p>
+          My main interests are UX, branding, digital media, and creative direction. I am especially drawn
+          to work that blends strong visuals with personality and intention.
+        </p>
 
-        <article class="project-card">
-          <div class="project-thumb">
-            <img src="1.png" alt="Curated Frames preview">
-          </div>
-          <h3>Curated Frames</h3>
-          <p>A film-focused website concept that combines editorial visuals, organized browsing, and a cinematic user experience.</p>
-          <a class="project-link" href="https://scrlettsandy.github.io/project1/" target="_blank">View Project</a>
-        </article>
+        <p>
+          Whether I am building a website, developing a concept, or shaping a visual identity,
+          I want the final result to feel memorable, stylish, and thoughtful.
+        </p>
 
-        <article class="project-card">
-          <div class="project-thumb">
-            <img src="4.jpg" alt="Good Design preview">
-          </div>
-          <h3>Good Design</h3>
-          <p>A bold editorial magazine project using portraiture, texture, and typography to explore what good design means to me.</p>
-          <a class="project-link" href="https://scrlettsandy.github.io/prodject2/" target="_blank">View Project</a>
-        </article>
-
-        <article class="project-card">
-          <div class="project-thumb">
-            <img src="8.png" alt="Princess Cafe preview">
-          </div>
-          <h3>Princess Cafe</h3>
-          <p>A silent short film focused on atmosphere, observation, and visual storytelling through the setting of the Princess Cafe.</p>
-          <a class="project-link" href="https://scrlettsandy.github.io/prodject3/" target="_blank">View Project</a>
-        </article>
-
+        <div class="tags">
+          <span class="tag">UX/UI</span>
+          <span class="tag">Branding</span>
+          <span class="tag">Storytelling</span>
+          <span class="tag">Visual Design</span>
+          <span class="tag">Creative Direction</span>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <section class="content-section" id="projects">
+    <div class="container">
+      <div class="fade-up">
+        <div class="eyebrow">Featured Work</div>
+        <h2 class="section-heading display">Projects</h2>
+        <p class="projects-intro">
+          A selection of projects that reflect my interest in visual storytelling, editorial-style design,
+          and creating polished digital experiences.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card fade-up">
+          <img src="1.png" alt="Curated Frames preview" class="project-image">
+          <div class="project-body">
+            <h3>Curated Frames</h3>
+            <p>A film-focused website concept that combines editorial visuals, organized browsing, and a cinematic user experience.</p>
+            <a class="project-link" href="https://scrlettsandy.github.io/project1/" target="_blank">View Project</a>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <img src="4.jpg" alt="Good Design preview" class="project-image">
+          <div class="project-body">
+            <h3>Good Design</h3>
+            <p>A bold editorial magazine project using portraiture, texture, and typography to explore what good design means to me.</p>
+            <a class="project-link" href="https://scrlettsandy.github.io/prodject2/" target="_blank">View Project</a>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <img src="8.png" alt="Princess Cafe preview" class="project-image">
+          <div class="project-body">
+            <h3>Princess Cafe</h3>
+            <p>A silent short film focused on atmosphere, observation, and visual storytelling through the setting of the Princess Cafe.</p>
+            <a class="project-link" href="https://scrlettsandy.github.io/prodject3/" target="_blank">View Project</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="contact">
+    <div class="container contact-grid">
+      <div class="fade-up">
+        <div class="eyebrow">Contact</div>
+        <h2 class="section-heading display">Let’s Connect</h2>
+        <p class="projects-intro">
+          I’m interested in design, creative media, and digital storytelling opportunities.
+        </p>
+      </div>
+
+      <div class="contact-card fade-up">
+        <div class="contact-list">
+          <a href="mailto:scarletts983@gmail.com">scarletts983@gmail.com</a>
+          <a href="https://www.linkedin.com/in/scarlett-sandy-00a3a2384/" target="_blank">LinkedIn</a>
+          <span>Waterloo, ON</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Scarlett Sandy Portfolio
+  </footer>
+
+  <script>
+    const fadeItems = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.18
+    });
+
+    fadeItems.forEach((item) => observer.observe(item));
+  </script>
+
 </body>
 </html>
