@@ -56,6 +56,7 @@
     section{
       width:100%;
       position:relative;
+      scroll-margin-top:40px;
     }
 
     .container{
@@ -317,6 +318,33 @@
       margin-bottom:34px;
     }
 
+    .projects-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:34px;
+    }
+
+    .view-all-btn{
+      display:inline-block;
+      padding:12px 22px;
+      border:1px solid rgba(255,255,255,0.3);
+      border-radius:999px;
+      color:#fff;
+      font-size:0.9rem;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      transition:0.25s ease;
+      white-space:nowrap;
+    }
+
+    .view-all-btn:hover{
+      background:rgba(255,255,255,0.08);
+      transform:translateY(-2px);
+    }
+
     .projects-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -485,6 +513,10 @@
       .contact-card{
         padding:22px;
       }
+
+      .projects-header{
+        align-items:flex-start;
+      }
     }
   </style>
 </head>
@@ -508,7 +540,8 @@
 
         <div class="socials">
           <a href="#about">About Me</a>
-          <a href="#projects">Projects</a>
+          <a href="https://scrlettsandy.github.io/prodjectpage/index.html" target="_blank">Projects</a>
+          <a href="#contact">Contact Me</a>
           <a href="mailto:scarletts983@gmail.com">Email</a>
           <a href="https://www.linkedin.com/in/scarlett-sandy-00a3a2384/" target="_blank">LinkedIn</a>
         </div>
@@ -563,13 +596,17 @@
 
   <section class="content-section" id="projects">
     <div class="container">
-      <div class="fade-up">
-        <div class="eyebrow">Featured Work</div>
-        <h2 class="section-heading display">Projects</h2>
-        <p class="projects-intro">
-          A selection of projects that reflect my interest in visual storytelling, editorial-style design,
-          and creating polished digital experiences.
-        </p>
+      <div class="projects-header fade-up">
+        <div>
+          <div class="eyebrow">Featured Work</div>
+          <h2 class="section-heading display">Projects</h2>
+          <p class="projects-intro">
+            A selection of projects that reflect my interest in visual storytelling, editorial-style design,
+            and creating polished digital experiences.
+          </p>
+        </div>
+
+        <a class="view-all-btn" href="https://scrlettsandy.github.io/prodjectpage/index.html" target="_blank">View All</a>
       </div>
 
       <div class="projects-grid">
